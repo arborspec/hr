@@ -38,6 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 	<body>
 
+
 		<form action="register_choose_picture.html" method="post" enctype="multipart/form-data">
 			<table width="100%">
 				<tr>
