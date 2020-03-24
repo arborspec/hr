@@ -23,7 +23,7 @@
 
 	<!-- 解析注解的位置 -->
 	<context:component-scan
-		base-package="hr.entity,hr.ly" />
+		base-package="hr.*" />
 
 	<!-- 释放全部的静态资源 -->
 	<mvc:default-servlet-handler />
@@ -87,7 +87,7 @@
 
 	<!-- 自动装配 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="hr.mapper"></property>
+		<property name="basePackage" value="hr.mapper,hr.*.mapper"></property>
 	</bean>
 
 </beans>
