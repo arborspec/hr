@@ -50,4 +50,12 @@ public class ConfigFileFirstKind {
     public void setFirstKindSaleId(String firstKindSaleId) {
         this.firstKindSaleId = firstKindSaleId == null ? null : firstKindSaleId.trim();
     }
+
+	@Override
+	public String toString() {
+		return "ConfigFileFirstKind [ffkId=" + ffkId + ", firstKindId=" + firstKindId + ", firstKindName="
+				+ firstKindName + ", firstKindSalaryId=" + firstKindSalaryId + ", firstKindSaleId=" + firstKindSaleId
+				+ "]";
+	}
+    
 }

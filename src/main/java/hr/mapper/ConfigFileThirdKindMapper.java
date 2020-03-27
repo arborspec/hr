@@ -5,6 +5,7 @@ import hr.entity.ConfigFileThirdKindExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+
 public interface ConfigFileThirdKindMapper {
     int countByExample(ConfigFileThirdKindExample example);
 

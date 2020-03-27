@@ -90,4 +90,13 @@ public class ConfigFileThirdKind {
     public void setThirdKindSaleId(String thirdKindSaleId) {
         this.thirdKindSaleId = thirdKindSaleId == null ? null : thirdKindSaleId.trim();
     }
+
+	@Override
+	public String toString() {
+		return "ConfigFileThirdKind [ftkId=" + ftkId + ", firstKindId=" + firstKindId + ", firstKindName="
+				+ firstKindName + ", secondKindId=" + secondKindId + ", secondKindName=" + secondKindName
+				+ ", thirdKindId=" + thirdKindId + ", thirdKindName=" + thirdKindName + ", thirdKindIsRetail="
+				+ thirdKindIsRetail + ", thirdKindSaleId=" + thirdKindSaleId + "]";
+	}
+    
 }

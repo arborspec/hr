@@ -10,12 +10,12 @@
 <head>
 <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="../../css/table.css" type="text/css">
-		<link rel="stylesheet" href="../../css/cwcalendar.css" type="text/css">
-			<script type="text/javascript" src="../../javascript/jquery-1.7.2.js">
+	<link rel="stylesheet" href="<%=basePath%>css/table.css" type="text/css">
+		<link rel="stylesheet" href="<%=basePath%>css/cwcalendar.css" type="text/css">
+			<script type="text/javascript" src="<%=basePath%>js/jquery-3.2.1.js">
 				
 			</script>
-			<script type="text/javascript"
+			<!-- <script type="text/javascript"
 				src="../../javascript/jquery.messager.js">
 				
 			</script>
@@ -38,6 +38,48 @@
 			<script type="text/javascript"
 				src="../../javascript/human_input_check.js">
 				
+			</script> -->
+			<script type="text/javascript">
+				$(function (){
+					$.get("ConfigFileFirstKindController/doQueryAllFristKind",function (data){
+						for(var i=0;i<data.length;i++){
+							var first = $("#firstKind")[0];
+							first.add(new Option(data[i].firstKindName,data[i].firstKindId));
+						}
+					});
+					
+					
+					$("#firstKind").change(function (){
+						var id = $(this).val();
+						if(id!=0)
+							$.get("ConfigFileSecondKind/doQuerySecondKind",{"id":id},function (data){
+								 $("#secondKind")[0].length=1;
+								for(var i=0;i<data.length;i++){
+									
+									var second = $("#secondKind")[0];
+									second.add(new Option(data[i].secondKindName,data[i].secondKindId));
+								}
+							})
+					});
+					
+					
+					$("#secondKind").change(function (){
+						var id = $(this).val();
+						if(id!=0)
+							$.get("ConfigFileThirdKindController/doQueryThirdKind",{"id":id},function (data){
+								$("#thirdKind")[0].length=1;
+								for(var i=0;i<data.length;i++){
+									
+									var third = $("#thirdKind")[0];
+									alert("jlkdsjfkla:"+data[i].thirdKindName);
+									third.add(new Option(data[i].thirdKindName,data[i].thirdKindId));
+									
+								}
+							})
+					});
+					
+					
+				})
 			</script>
 </head>
 
@@ -58,23 +100,23 @@
 			bordercolorlight=#848284 bordercolordark=#eeeeee class="TABLE_STYLE1">
 			<tr>
 				<td class="TD_STYLE1" width="11%">I级机构</td>
-				<td width="14%" class="TD_STYLE2"><select
-					name="humanFile.firstKindId" class="SELECT_STYLE1" id="firstKind">
+				<td width="14%" class="TD_STYLE2">
+				<select name="humanFile.firstKindId" class="SELECT_STYLE1" id="firstKind">
 						<option value="0">请选择</option>
-						<option>集团</option>
-				</select> <input type="hidden" name="humanFile.firstKindName" /></td>
+				</select> 
+				<input type="hidden" name="humanFile.firstKindName" /></td>
 				<td width="11%" class="TD_STYLE1">II级机构</td>
 				<td width="14%" class="TD_STYLE2"><select
 					name="humanFile.secondKindId" class="SELECT_STYLE1" id="secondKind">
 						<option value="0">请选择</option>
-						<option>湖南分校</option>
-				</select> <input type="hidden" name="humanFile.secondKindName" /></td>
+				</select> 
+				<input type="hidden" name="humanFile.secondKindName" /></td>
 				<td width="11%" class="TD_STYLE1">III级机构</td>
 				<td class="TD_STYLE2" colspan="2"><select
 					name="humanFile.thirdKindId" class="SELECT_STYLE1" id="thirdKind">
 						<option value="0">请选择</option>
-						<option>长沙华瑞</option>
-				</select> <input type="hidden" name="humanFile.thirdKindName" /></td>
+				</select> 
+				<input type="hidden" name="humanFile.thirdKindName" /></td>
 				<td rowspan="5" style="text-align: center;"></td>
 			</tr>
 			<tr>

@@ -50,4 +50,11 @@ public class ConfigFileSecondKind {
     public void setSecondKindName(String secondKindName) {
         this.secondKindName = secondKindName == null ? null : secondKindName.trim();
     }
+
+	@Override
+	public String toString() {
+		return "ConfigFileSecondKind [fskId=" + fskId + ", firstKindId=" + firstKindId + ", firstKindName="
+				+ firstKindName + ", secondKindId=" + secondKindId + ", secondKindName=" + secondKindName + "]";
+	}
+    
 }
